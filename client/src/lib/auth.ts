@@ -1,12 +1,9 @@
 import { getServerSession } from 'next-auth/next'
-import { MongoDBAdapter } from '@next-auth/mongodb-adapter'
-import { clientPromise } from '@/lib/mongodb'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { User } from '@/lib/models'
 import bcrypt from 'bcryptjs'
 
 const authOptions = {
-  adapter: MongoDBAdapter(clientPromise),
   providers: [
     CredentialsProvider({
       name: 'credentials',
