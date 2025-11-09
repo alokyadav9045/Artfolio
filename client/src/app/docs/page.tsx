@@ -92,7 +92,7 @@ export default function DocsPage() {
     switch (type) {
       case "guide": return "bg-blue-900/20 text-blue-400 border-blue-800/50";
       case "tutorial": return "bg-green-900/20 text-green-400 border-green-800/50";
-      case "reference": return "bg-purple-900/20 text-purple-400 border-purple-800/50";
+      case "reference": return "bg-teal-900/20 text-teal-400 border-teal-800/50";
       default: return "bg-zinc-900/20 text-zinc-400 border-zinc-800/50";
     }
   };

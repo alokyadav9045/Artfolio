@@ -272,7 +272,7 @@ export default function SupportPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
+                  <div className="w-2 h-2 bg-teal-400 rounded-full mt-2"></div>
                   <div>
                     <p className="text-zinc-300 text-sm font-medium">Portfolio Examples Added</p>
                     <p className="text-zinc-500 text-xs">November 3, 2025</p>

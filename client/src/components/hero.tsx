@@ -6,7 +6,9 @@ import { ArrowRight, Palette, Heart, MessageCircle } from "lucide-react";
 import { AnimatedGrid } from "@/components/ui/animated-grid";
 import { AnimatedText } from "@/components/ui/animated-text";
 import { ParticleBackground } from "@/components/ui/particle-background";
+import { GridScan } from "@/components/ui/grid-scan";
 import { useSpring, animated } from '@react-spring/web';
+import '@/components/ui/grid-scan.css';
 
 export default function Hero() {
   const buttonSpring = useSpring({
@@ -28,8 +30,26 @@ export default function Hero() {
       {/* Particle Background */}
       <ParticleBackground className="opacity-60" />
 
+      {/* GridScan Background */}
+      <div className="absolute inset-0 opacity-40">
+        <GridScan
+          sensitivity={0.55}
+          lineThickness={1}
+          linesColor="#008080"
+          gridScale={0.1}
+          scanColor="#00CED1"
+          scanOpacity={0.4}
+          enablePost
+          bloomIntensity={0.6}
+          chromaticAberration={0.002}
+          noiseIntensity={0.01}
+          className=""
+          style={{ width: '100%', height: '100%' }}
+        />
+      </div>
+
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-pink-900/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-900/10 via-transparent to-teal-800/10" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">

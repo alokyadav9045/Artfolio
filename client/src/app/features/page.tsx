@@ -39,14 +39,14 @@ export default function FeaturesPage() {
       title: "Community Engagement",
       description: "Connect with fellow artists, get feedback, and build relationships in our supportive community.",
       benefits: ["Artist networking", "Feedback system", "Community discussions", "Collaborative features"],
-      color: "purple"
+      color: "teal"
     },
     {
       icon: Palette,
       title: "Portfolio Customization",
       description: "Create a stunning portfolio that reflects your unique artistic style and professional brand.",
       benefits: ["Custom layouts", "Theme options", "SEO optimization", "Mobile responsive"],
-      color: "pink"
+      color: "cyan"
     }
   ];
 
@@ -122,7 +122,7 @@ export default function FeaturesPage() {
           <div className="max-w-7xl mx-auto text-center">
             <h1 className="text-5xl font-bold text-white mb-6">
               Powerful Features for
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
                 {" "}Creative Professionals
               </span>
             </h1>

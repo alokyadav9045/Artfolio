@@ -30,12 +30,12 @@ export default function Footer() {
           <div className="lg:col-span-5 space-y-6">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-25" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-teal-600 to-teal-700 rounded-lg blur opacity-25" />
                 <Link href="/" className="relative text-3xl font-bold bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-transparent">
                   Artfolio
                 </Link>
               </div>
-              <Sparkles className="h-6 w-6 text-purple-400 animate-pulse" />
+              <Sparkles className="h-6 w-6 text-teal-400 animate-pulse" />
             </div>
 
             <p className="text-zinc-400 leading-relaxed max-w-md">
@@ -54,13 +54,13 @@ export default function Footer() {
                 <Link
                   key={label}
                   href={href}
-                  className="group relative p-3 bg-zinc-800/50 hover:bg-zinc-700/50 rounded-xl border border-zinc-700/50 hover:border-zinc-600/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/10"
+                  className="group relative p-3 bg-zinc-800/50 hover:bg-zinc-700/50 rounded-xl border border-zinc-700/50 hover:border-zinc-600/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-teal-500/10"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
                 >
                   <Icon className="h-5 w-5 text-zinc-400 group-hover:text-white transition-colors" />
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-teal-600/20 to-teal-700/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               ))}
             </div>
@@ -70,7 +70,7 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-6">
             <h3 className="text-white font-semibold text-lg relative">
               Platform
-              <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
+              <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full" />
             </h3>
             <ul className="space-y-3">
               {[
@@ -96,7 +96,7 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-6">
             <h3 className="text-white font-semibold text-lg relative">
               Resources
-              <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
+              <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full" />
             </h3>
             <ul className="space-y-3">
               {[
@@ -122,7 +122,7 @@ export default function Footer() {
           <div className="lg:col-span-3 space-y-6">
             <h3 className="text-white font-semibold text-lg relative">
               Stay Updated
-              <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
+              <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full" />
             </h3>
             <p className="text-zinc-400 text-sm">
               Get the latest updates on new features and art trends.
@@ -131,9 +131,12 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full px-4 py-3 bg-zinc-800/50 border border-zinc-700/50 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/25 transition-all"
+                className="w-full px-4 py-3 bg-zinc-800/50 border border-zinc-700/50 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-teal-500/50 focus:ring-1 focus:ring-teal-500/25 transition-all"
+                suppressHydrationWarning
               />
-              <button className="w-full px-4 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 hover:scale-[1.02]">
+              <button className="w-full px-4 py-3 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-teal-500/25 hover:scale-[1.02]"
+                suppressHydrationWarning
+              >
                 Subscribe
               </button>
             </div>
@@ -167,6 +170,7 @@ export default function Footer() {
               onClick={scrollToTop}
               className="group flex items-center space-x-2 text-zinc-400 hover:text-white transition-all duration-300 hover:scale-105"
               aria-label="Back to top"
+              suppressHydrationWarning
             >
               <span className="text-sm">Back to top</span>
               <ArrowUp className="h-4 w-4 group-hover:-translate-y-1 transition-transform" />
@@ -176,8 +180,8 @@ export default function Footer() {
       </div>
 
       {/* Floating Elements */}
-      <div className="absolute top-10 right-10 w-20 h-20 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-xl animate-pulse" />
-      <div className="absolute bottom-10 left-10 w-16 h-16 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-xl animate-pulse delay-1000" />
+      <div className="absolute top-10 right-10 w-20 h-20 bg-gradient-to-br from-teal-500/10 to-teal-600/10 rounded-full blur-xl animate-pulse" />
+      <div className="absolute bottom-10 left-10 w-16 h-16 bg-gradient-to-br from-cyan-500/10 to-teal-500/10 rounded-full blur-xl animate-pulse delay-1000" />
     </footer>
   );
 }

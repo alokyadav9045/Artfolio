@@ -27,15 +27,15 @@ export function CallToAction({ className }: CallToActionProps) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               {/* Create Account */}
               <div className="text-center">
-                <div className="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-purple-400" />
+                <div className="w-16 h-16 bg-teal-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-8 h-8 text-teal-400" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-2">Create Your Profile</h3>
                 <p className="text-zinc-400 mb-4">
                   Set up your artist profile and start building your portfolio
                 </p>
                 <Link href="/signup">
-                  <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                  <Button className="w-full bg-teal-600 hover:bg-teal-700">
                     Sign Up Free
                   </Button>
                 </Link>

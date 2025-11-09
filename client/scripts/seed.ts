@@ -9,68 +9,68 @@ dotenv.config({ path: '.env.local' })
 // Comprehensive artist profiles with realistic details
 const artistProfiles = [
   {
-    name: 'Sofia Martinez',
-    email: 'sofia.martinez@artfolio.com',
-    bio: 'Contemporary digital artist exploring the intersection of nature and technology. 15+ years of experience in sustainable art practices and community engagement. Currently based in Barcelona.',
-    location: 'Barcelona, Spain',
-    website: 'https://sofiamartinez-art.com',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
+    name: 'Priya Sharma',
+    email: 'priya.sharma@artfolio.com',
+    bio: 'Contemporary digital artist exploring the intersection of nature and technology. 15+ years of experience in sustainable art practices and community engagement. Currently based in Mumbai.',
+    location: 'Mumbai, India',
+    website: 'https://priyasharma-art.com',
+    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop', // Painting artist portrait
   },
   {
-    name: 'James Chen',
-    email: 'james.chen@artfolio.com',
+    name: 'Arjun Patel',
+    email: 'arjun.patel@artfolio.com',
     bio: 'Digital artist and illustrator specializing in sci-fi and fantasy concepts. Merging traditional art principles with cutting-edge digital tools. Available for commissions and collaborations.',
-    location: 'Tokyo, Japan',
-    website: 'https://jameschen-digital.com',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
+    location: 'Delhi, India',
+    website: 'https://arjunpatel-digital.com',
+    image: 'https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=400&h=400&fit=crop', // Artist with paintbrush
   },
   {
-    name: 'Emma Johnson',
-    email: 'emma.johnson@artfolio.com',
+    name: 'Ananya Singh',
+    email: 'ananya.singh@artfolio.com',
     bio: 'Oil painter and muralist dedicated to bringing color and life to urban spaces. Advocate for public art and creative expression. Teaching workshops in local communities.',
-    location: 'London, UK',
-    website: 'https://emmajohnson-murals.com',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop',
+    location: 'Jaipur, India',
+    website: 'https://ananyasingh-murals.com',
+    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop', // Female artist portrait
   },
   {
-    name: 'Rajesh Patel',
-    email: 'rajesh.patel@artfolio.com',
+    name: 'Rajesh Kumar',
+    email: 'rajesh.kumar@artfolio.com',
     bio: 'Mixed media artist exploring cultural identity and social justice through art. Combining traditional techniques with modern storytelling. Featured in international exhibitions.',
-    location: 'New Delhi, India',
-    website: 'https://rajeshpatel-art.com',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
+    location: 'Kolkata, India',
+    website: 'https://rajeshkumar-art.com',
+    image: 'https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=400&h=400&fit=crop', // Male artist portrait
   },
   {
-    name: 'Lucia Rossi',
-    email: 'lucia.rossi@artfolio.com',
+    name: 'Kavita Reddy',
+    email: 'kavita.reddy@artfolio.com',
     bio: 'Watercolor artist specializing in landscapes and botanical illustrations. Each piece tells a story of nature\'s diversity and beauty. Over 20 years of artistic practice.',
-    location: 'Venice, Italy',
-    website: 'https://lucia-watercolors.com',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop',
+    location: 'Hyderabad, India',
+    website: 'https://kavitareddy-watercolors.com',
+    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop', // Watercolor artist
   },
   {
-    name: 'Marcus Stone',
-    email: 'marcus.stone@artfolio.com',
+    name: 'Vikram Joshi',
+    email: 'vikram.joshi@artfolio.com',
     bio: 'Sculpture and installation artist pushing boundaries of spatial perception. Working with sustainable materials and exploring environmental consciousness through art.',
-    location: 'Berlin, Germany',
-    website: 'https://marcusstone-sculptures.com',
-    image: 'https://images.unsplash.com/photo-1519085360771-9852612cc4c5?w=400&h=400&fit=crop',
+    location: 'Pune, India',
+    website: 'https://vikramjoshi-sculptures.com',
+    image: 'https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=400&h=400&fit=crop', // Sculpture artist
   },
   {
-    name: 'Yuki Tanaka',
-    email: 'yuki.tanaka@artfolio.com',
+    name: 'Meera Gupta',
+    email: 'meera.gupta@artfolio.com',
     bio: 'Photographer capturing raw emotions and human stories. Specializing in street photography and documentary work. Published in multiple international magazines.',
-    location: 'Kyoto, Japan',
-    website: 'https://yukitanaka-photography.com',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
+    location: 'Chennai, India',
+    website: 'https://meera-photography.com',
+    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop', // Photographer artist
   },
   {
-    name: 'Amara Okonkwo',
-    email: 'amara.okonkwo@artfolio.com',
-    bio: 'Contemporary textile artist celebrating African heritage and cultural narratives. Using traditional weaving techniques with modern design sensibilities.',
-    location: 'Lagos, Nigeria',
-    website: 'https://amaraokonkwo-textiles.com',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
+    name: 'Rohan Malhotra',
+    email: 'rohan.malhotra@artfolio.com',
+    bio: 'Contemporary textile artist celebrating Indian heritage and cultural narratives. Using traditional weaving techniques with modern design sensibilities.',
+    location: 'Ahmedabad, India',
+    website: 'https://rohanmalhotra-textiles.com',
+    image: 'https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=400&h=400&fit=crop', // Textile artist
   },
 ]
 
@@ -153,23 +153,23 @@ const artworkTemplates = [
   },
 ]
 
-// Image URLs from Unsplash (high-quality, realistic)
+// Image URLs from Unsplash (high-quality painting images)
 const imageUrls = [
-  'https://images.unsplash.com/photo-1569163139394-de4798aa62b3?w=1200&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1578621066519-5e0dd7b6c28d?w=1200&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1554169785-e91953dec042?w=1200&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1444080748397-f442aa95c3e5?w=1200&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=1200&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1578301978162-7aae4d755744?w=1200&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1200&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1545665225-a6c4e4e1ce19?w=1200&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1578762996442-48f60103fc96?w=1200&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1552053831-71594a27c62d?w=1200&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1578827173703-46e562c40955?w=1200&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1577720643272-265f434b3fb1?w=1200&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1564399579883-451a5e44e571?w=1200&h=900&fit=crop',
+  'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=900&fit=crop', // Abstract painting
+  'https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=1200&h=900&fit=crop', // Oil painting
+  'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=900&fit=crop', // Watercolor painting
+  'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=900&fit=crop', // Acrylic painting
+  'https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=1200&h=900&fit=crop', // Landscape painting
+  'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=900&fit=crop', // Portrait painting
+  'https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=1200&h=900&fit=crop', // Still life painting
+  'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=900&fit=crop', // Modern art painting
+  'https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=1200&h=900&fit=crop', // Contemporary painting
+  'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=900&fit=crop', // Mixed media painting
+  'https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=1200&h=900&fit=crop', // Expressionist painting
+  'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=900&fit=crop', // Impressionist painting
+  'https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=1200&h=900&fit=crop', // Surreal painting
+  'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=900&fit=crop', // Minimalist painting
+  'https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=1200&h=900&fit=crop', // Colorful abstract painting
 ]
 
 // Realistic comment examples
@@ -234,7 +234,20 @@ async function seed() {
       const template = artworkTemplates[i]
       const artist = users[i % users.length]
 
-      // Create image
+      // Create artwork first
+      const artwork = await Artwork.create({
+        title: template.title,
+        description: template.description,
+        tags: template.tags,
+        author: artist._id,
+        images: [], // Will be populated after image creation
+        isPublished: true,
+        viewCount: Math.floor(Math.random() * 8000) + 150,
+        likeCount: 0, // Will be calculated later
+        commentCount: 0, // Will be calculated later
+      })
+
+      // Create image with required fields
       const imageData = await Image.create({
         url: imageUrls[i % imageUrls.length],
         alt: template.title,
@@ -242,23 +255,14 @@ async function seed() {
         mimeType: 'image/jpeg',
         width: 1200,
         height: 900,
+        size: 245760, // 240KB in bytes
+        artwork: artwork._id,
+        uploadedBy: artist._id,
       })
 
-      // Create artwork with realistic metrics
-      const viewCount = Math.floor(Math.random() * 8000) + 150
-      const likeCount = Math.floor(viewCount * (Math.random() * 0.2 + 0.05))
-      const commentCount = Math.floor(likeCount * (Math.random() * 0.4))
-
-      const artwork = await Artwork.create({
-        title: template.title,
-        description: template.description,
-        tags: template.tags,
-        author: artist._id,
-        images: [imageData._id],
-        isPublished: true,
-        viewCount,
-        likeCount,
-        commentCount,
+      // Update artwork with image reference
+      await Artwork.findByIdAndUpdate(artwork._id, {
+        $push: { images: imageData._id },
       })
 
       // Update user artworks
@@ -266,7 +270,21 @@ async function seed() {
         $push: { artworks: artwork._id },
       })
 
-      createdArtworks.push(artwork)
+      // Calculate realistic metrics
+      const viewCount = Math.floor(Math.random() * 8000) + 150
+      const likeCount = Math.floor(viewCount * (Math.random() * 0.2 + 0.05))
+      const commentCount = Math.floor(likeCount * (Math.random() * 0.4))
+
+      // Update artwork with final metrics
+      await Artwork.findByIdAndUpdate(artwork._id, {
+        viewCount,
+        likeCount,
+        commentCount,
+      })
+
+      // Create a copy with updated metrics for the array
+      const updatedArtwork = await Artwork.findById(artwork._id)
+      createdArtworks.push(updatedArtwork!)
       console.log(`  ✅ "${template.title}" by ${artist.name}`)
     }
 
@@ -286,7 +304,7 @@ async function seed() {
         
         const comment = await Comment.create({
           content: commentText,
-          author: randomUser._id,
+          user: randomUser._id,
           artwork: artwork._id,
         })
 

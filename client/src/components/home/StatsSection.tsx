@@ -50,7 +50,7 @@ export function StatsSection({ className }: StatsSectionProps) {
       title: 'Total Artworks',
       value: stats?.stats?.totalArtworks || 0,
       icon: Palette,
-      color: 'text-purple-400',
+      color: 'text-teal-400',
     },
     {
       title: 'Artists',

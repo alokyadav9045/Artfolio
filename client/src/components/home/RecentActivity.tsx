@@ -81,8 +81,8 @@ export function RecentActivity({ className }: RecentActivityProps) {
 
         {activities.length > 0 ? (
           <div className="space-y-4">
-            {activities.map((activity) => (
-              <Card key={activity.id} className="bg-zinc-900/50 border-zinc-800">
+            {activities.map((activity, index) => (
+              <Card key={`${activity.id}-${index}`} className="bg-zinc-900/50 border-zinc-800">
                 <CardContent className="p-4">
                   <div className="flex items-center gap-4">
                     {/* Activity Icon */}
