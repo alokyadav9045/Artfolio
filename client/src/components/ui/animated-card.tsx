@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 
 interface AnimatedCardProps {
   children: React.ReactNode;

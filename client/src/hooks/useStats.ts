@@ -7,10 +7,29 @@ interface StatsData {
     totalComments: number
     totalLikes: number
   }
-  trendingArtworks: any[]
-  featuredArtists: any[]
-  popularTags: any[]
-  recentActivity: any[]
+  trendingArtworks: Array<{
+    id: string
+    title: string
+    imageUrl: string
+    artist: string
+    likes: number
+  }>
+  featuredArtists: Array<{
+    id: string
+    name: string
+    avatar: string
+    artworksCount: number
+  }>
+  popularTags: Array<{
+    name: string
+    count: number
+  }>
+  recentActivity: Array<{
+    id: string
+    type: string
+    message: string
+    timestamp: string
+  }>
 }
 
 export function useStats() {
@@ -64,7 +83,7 @@ export function useStats() {
     retry: (failureCount, error) => {
       // Don't retry on 4xx errors
       if (error instanceof Error && 'status' in error) {
-        const status = (error as any).status
+        const status = (error as { status: number }).status
         if (status >= 400 && status < 500) return false
       }
       return failureCount < 2

@@ -66,7 +66,7 @@ export function ParticleBackground({
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particles.forEach((particle, index) => {
+      particles.forEach((particle, _index) => {
         // Update particle position
         particle.x += particle.vx;
         particle.y += particle.vy;

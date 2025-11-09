@@ -29,7 +29,6 @@ export function AnimatedGrid({ className = "" }: AnimatedGridProps) {
     // Grid properties
     const gridSize = 30;
     const lineWidth = 1;
-    const colors = ['#374151', '#4B5563', '#6B7280'];
 
     let animationId: number;
     let time = 0;

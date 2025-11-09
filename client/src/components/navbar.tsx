@@ -11,14 +11,15 @@ import { useSession, signOut } from "next-auth/react";
 function DropdownMenu({ children }: React.PropsWithChildren) {
   return <div className="relative inline-block">{children}</div>;
 }
-function DropdownMenuTrigger({ children, asChild }: React.PropsWithChildren & { asChild?: boolean }) {
+function DropdownMenuTrigger({ children, asChild: _asChild }: React.PropsWithChildren & { asChild?: boolean }) {
   // Render children directly so the existing usage with asChild works as expected
   return <>{children}</>;
 }
-function DropdownMenuContent({ children, className = "", align, forceMount }: React.PropsWithChildren & { className?: string; align?: string; forceMount?: boolean }) {
-  // Simple absolute positioned menu aligned to the end to roughly match expected behavior
+function DropdownMenuContent({ children, className = "", align = "end", forceMount: _forceMount }: React.PropsWithChildren & { className?: string; align?: string; forceMount?: boolean }) {
+  // Simple absolute positioned menu with alignment support
+  const alignmentClass = align === "start" ? "left-0" : "right-0";
   return (
-    <div className={`absolute right-0 mt-2 rounded-md shadow-lg ${className}`}>
+    <div className={`absolute ${alignmentClass} mt-2 rounded-md shadow-lg ${className}`}>
       {children}
     </div>
   );
