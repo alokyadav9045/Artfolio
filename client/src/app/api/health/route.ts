@@ -1,0 +1,31 @@
+import { NextResponse } from 'next/server'
+import dbConnect from '@/lib/mongodb'
+import { User } from '@/lib/models'
+
+export async function GET() {
+  try {
+    // Check database connection
+    await dbConnect()
+
+    // Check if we can fetch users (basic data check)
+    const userCount = await User.countDocuments()
+
+    return NextResponse.json({
+      status: 'healthy',
+      timestamp: new Date().toISOString(),
+      database: 'connected',
+      users: userCount,
+      version: process.env.npm_package_version || '1.0.0'
+    })
+  } catch (error) {
+    console.error('Health check failed:', error)
+    return NextResponse.json(
+      {
+        status: 'unhealthy',
+        timestamp: new Date().toISOString(),
+        error: 'Database connection failed'
+      },
+      { status: 500 }
+    )
+  }
+}

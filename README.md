@@ -1,37 +1,50 @@
-# 🚀 Next.js Template with shadcn/ui
+# 🎨 Artfolio - Portfolio Builder for Artists
 
-A modern, production-ready Next.js template with Tailwind CSS, shadcn/ui components, and TypeScript pre-configured. Perfect for quickly bootstrapping your next project with industry best practices.
+A gallery that breathes — creators upload light and color, visitors leave echoes (likes, comments). A modern, production-ready portfolio platform for artists built with Next.js 15, featuring secure authentication, cloud storage, and real-time interactions.
 
-![Next.js Template](client/public/nextjs.png)
+![Artfolio](client/public/nextjs.png)
 
 ## ✨ Features
 
-- ⚡ **Next.js 15** - Latest version with App Router and Turbopack
-- 🎨 **Tailwind CSS 4** - Utility-first CSS framework
-- 🧩 **shadcn/ui** - Beautiful, accessible components built on Radix UI
-- 📱 **Responsive Design** - Mobile-first approach
-- 🔧 **TypeScript** - Full type safety
-- 🎯 **ESLint** - Code linting and formatting
-- 🚀 **Vercel Ready** - Optimized for deployment
-- 🌙 **Dark Mode** - Built-in dark/light theme support
-- 📦 **Component Library** - Pre-built UI components
+- 🎨 **Artist Portfolio Creation** - Beautiful, responsive galleries for artists
+- 🔐 **Secure Authentication** - NextAuth.js with OAuth (Google, GitHub)
+- ☁️ **Cloud Storage** - AWS S3 or Cloudinary integration for image uploads
+- 💬 **Social Interactions** - Likes, comments, and engagement features
+- 📱 **Responsive Design** - Mobile-first approach with Tailwind CSS
+- 🔧 **TypeScript** - Full type safety throughout the application
+- 🧪 **Comprehensive Testing** - Jest unit tests and Playwright E2E tests
+- 🚀 **Production Ready** - Optimized for Vercel deployment
+- 📊 **Analytics & Monitoring** - Vercel Analytics and Sentry error tracking
+- 🛡️ **Security First** - Rate limiting, security headers, and middleware
+- 🎯 **Performance Optimized** - Bundle analysis and Web Vitals tracking
 
 ## 🛠️ Tech Stack
 
-- **Framework:** Next.js 15
+- **Framework:** Next.js 15 (App Router)
 - **Language:** TypeScript
-- **Styling:** Tailwind CSS 4
-- **Components:** shadcn/ui + Radix UI
-- **Icons:** Lucide React
-- **Package Manager:** npm
+- **Database:** MongoDB with Mongoose ODM
+- **Authentication:** NextAuth.js
+- **Styling:** Tailwind CSS 4 + shadcn/ui
+- **Storage:** AWS S3 / Cloudinary
+- **Deployment:** Vercel
+- **Monitoring:** Sentry + Vercel Analytics
+- **Testing:** Jest + Playwright
+- **State Management:** TanStack Query
 
 ## 🚀 Quick Start
 
-### 1. Fork or Clone this repository
+### Prerequisites
+
+- Node.js 18+ and npm
+- PostgreSQL database (local or cloud)
+- AWS S3 bucket or Cloudinary account (for image storage)
+- OAuth applications (Google/GitHub) for authentication
+
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/AhqafCoder/nextjs-template.git
-cd nextjs-template
+git clone https://github.com/yourusername/artfolio.git
+cd artfolio
 ```
 
 ### 2. Install dependencies
@@ -41,13 +54,55 @@ cd client
 npm install
 ```
 
-### 3. Run the development server
+### 3. Environment Setup
+
+Copy the environment template and configure your variables:
+
+```bash
+cp .env.example .env.local
+```
+
+Fill in your environment variables (see `.env.example` for detailed instructions).
+
+### 4. Database Setup
+
+**For Local MongoDB:**
+```bash
+# Install MongoDB Community Edition
+# Windows: Download from https://www.mongodb.com/try/download/community
+# macOS: brew install mongodb-community
+# Linux: Follow official documentation
+
+# Start MongoDB service
+mongod
+
+# Or use MongoDB Compass for GUI management
+```
+
+**For MongoDB Atlas (Cloud):**
+1. Create account at https://cloud.mongodb.com/
+2. Create a new cluster
+3. Get connection string from Atlas dashboard
+
+### 5. Environment Setup
+
+Update your `.env.local` file:
+```bash
+# Database
+MONGODB_URI="mongodb://localhost:27017/artfolio"
+# OR for MongoDB Atlas:
+MONGODB_URI="mongodb+srv://username:password@cluster.mongodb.net/artfolio"
+
+# NextAuth Configuration
+NEXTAUTH_SECRET="your-super-secret-nextauth-key-minimum-32-chars"
+NEXTAUTH_URL="http://localhost:3000"
+```
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 📁 Project Structure
 
@@ -55,92 +110,183 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the r
 client/
 ├── src/
 │   ├── app/
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx
+│   │   ├── api/           # API routes
+│   │   ├── globals.css    # Global styles
+│   │   ├── layout.tsx     # Root layout
+│   │   └── page.tsx       # Homepage
 │   ├── components/
-│   │   └── ui/
-│   │       └── button.tsx
+│   │   ├── ui/            # shadcn/ui components
+│   │   ├── hero.tsx       # Hero section
+│   │   ├── navbar.tsx     # Navigation
+│   │   └── footer.tsx     # Footer
 │   └── lib/
-│       └── utils.ts
-├── public/
-├── components.json
-├── package.json
-├── tailwind.config.js
-└── tsconfig.json
+│       ├── utils.ts       # Utility functions
+│       └── rate-limit.ts  # Rate limiting logic
+├── prisma/
+│   └── schema.prisma      # Database schema
+├── public/                # Static assets
+├── e2e/                   # End-to-end tests
+├── .env.example           # Environment template
+├── next.config.js         # Next.js configuration
+├── tailwind.config.js     # Tailwind configuration
+├── jest.config.js         # Jest configuration
+├── playwright.config.ts   # Playwright configuration
+└── vercel.json            # Vercel deployment config
 ```
 
-## 🎨 Available Components
+## 🧪 Testing
 
-This template comes with shadcn/ui components pre-configured:
-
-- **Button** - Various button styles and sizes
-- **Card** - Content containers
-- **Input** - Form inputs
-- **Label** - Form labels
-- And many more...
-
-### Adding New Components
-
-To add more shadcn/ui components:
+### Unit Tests
 
 ```bash
-npx shadcn@latest add [component-name]
+npm run test
+npm run test:watch
+npm run test:coverage
 ```
 
-Example:
+### End-to-End Tests
+
 ```bash
-npx shadcn@latest add card
-npx shadcn@latest add input
-npx shadcn@latest add dialog
+# Install Playwright browsers
+npx playwright install
+
+# Run E2E tests
+npm run test:e2e
 ```
-
-## 🔧 Configuration
-
-### Tailwind CSS
-
-The template uses Tailwind CSS 4 with custom configuration. Modify `tailwind.config.js` to customize your design system.
-
-### shadcn/ui
-
-Components are configured in `components.json`:
-- **Style:** New York
-- **Base Color:** Zinc
-- **CSS Variables:** Enabled
-- **Icon Library:** Lucide React
-
-## 📝 Scripts
-
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build for production
-- `npm start` - Start production server
-- `npm run lint` - Run ESLint
 
 ## 🚀 Deployment
 
-### Deploy on Vercel
+### Vercel Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new).
+1. **Connect Repository**
+   - Import your GitHub repository to Vercel
+   - Configure build settings
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/nextjs-template)
+2. **Environment Variables**
+   - Add all variables from `.env.example`
+   - Configure production database URL
 
-### Other Platforms
+3. **Database Migration**
+   ```bash
+   # For PlanetScale or similar
+   npm run db:push
+   ```
 
-This template works with any platform that supports Next.js:
-- Netlify
-- Railway
-- Render
-- AWS Amplify
+4. **Deploy**
+   - Vercel will automatically deploy on git push
+   - Preview deployments for pull requests
+
+### Manual Deployment
+
+```bash
+# Build for production
+npm run build
+
+# Start production server
+npm run start
+```
+
+## 📊 Monitoring & Analytics
+
+### Performance Monitoring
+
+```bash
+# Analyze bundle size
+npm run analyze
+
+# View bundle analysis
+npm run analyze:view
+```
+
+### Error Tracking
+
+- Sentry automatically captures errors in production
+- Configure your Sentry DSN in environment variables
+
+### Analytics
+
+- Vercel Analytics tracks page views and performance
+- Web Vitals monitoring included
+
+## � Development Scripts
+
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run preview      # Build and preview
+npm run lint         # Run ESLint
+npm run lint:fix     # Fix linting issues
+npm run type-check   # Run TypeScript checks
+npm run test         # Run unit tests
+npm run test:watch   # Watch mode tests
+npm run test:coverage # Test coverage report
+npm run test:e2e     # Run E2E tests
+npm run db:seed      # Seed database with sample data
+npm run clean        # Clean build artifacts
+npm run analyze      # Bundle analysis
+npm run analyze:view # View bundle analysis
+npm run deploy:check # Pre-deployment checks
+npm run analyze      # Bundle analysis
+npm run deploy:check # Pre-deployment checks
+```
+
+## 🔒 Security Features
+
+- **Rate Limiting** - API rate limiting with Upstash Redis
+- **Security Headers** - Comprehensive security headers
+- **CORS Configuration** - Proper CORS setup for API routes
+- **Input Validation** - Zod schema validation
+- **Authentication** - Secure OAuth implementation
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
+
+### Development Guidelines
+
+- Follow TypeScript best practices
+- Write tests for new features
+- Update documentation
+- Ensure code passes linting
+- Test on multiple browsers
+
+## 📄 Environment Variables
+
+See `.env.example` for all required environment variables:
+
+- **Database:** `MONGODB_URI`
+- **Authentication:** `NEXTAUTH_SECRET`, OAuth credentials
+- **Storage:** AWS S3 or Cloudinary configuration
+- **Monitoring:** Sentry and Vercel Analytics
+- **Security:** Rate limiting and CSRF protection
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **Database Connection**
+   ```bash
+   # Check MongoDB connection with MongoDB Compass
+   # Or use mongosh CLI
+   mongosh "mongodb://localhost:27017/artfolio"
+   ```
+
+2. **Build Errors**
+   ```bash
+   npm run clean     # Clear cache
+   npm run build     # Retry build
+   ```
+
+3. **Test Failures**
+   ```bash
+   npm run test:coverage  # Run with coverage
+   npm run test:e2e       # Run E2E tests
+   ```
 
 ## 📄 License
 
@@ -149,11 +295,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - [Next.js](https://nextjs.org/) - The React framework
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- [shadcn/ui](https://ui.shadcn.com/) - Beautiful component library
-- [Radix UI](https://www.radix-ui.com/) - Low-level UI primitives
-- [Lucide](https://lucide.dev/) - Beautiful & consistent icons
+- [MongoDB](https://mongodb.com/) - NoSQL database
+- [Mongoose](https://mongoosejs.com/) - MongoDB ODM
+- [NextAuth.js](https://next-auth.js.org/) - Authentication
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [shadcn/ui](https://ui.shadcn.com/) - Component library
+- [Vercel](https://vercel.com/) - Deployment platform
+- [Sentry](https://sentry.io/) - Error monitoring
 
 ---
 
-⭐ If this template helped you, please give it a star!
+⭐ If Artfolio helped you showcase your art, please give it a star!

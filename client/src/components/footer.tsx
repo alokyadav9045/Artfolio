@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Twitter, Linkedin, Mail, Heart } from "lucide-react";
+import { Twitter, Mail, Heart } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -9,23 +9,14 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="text-2xl font-bold text-white mb-4 block">
-              NextTemplate
+              Artfolio
             </Link>
             <p className="text-zinc-400 mb-6 max-w-md">
-              A production-ready Next.js template with TypeScript, Tailwind CSS, and shadcn/ui components. 
-              Built for developers who want to ship fast.
+              A modern art portfolio platform for creators. Showcase your work, connect with artists, and grow your creative career.
             </p>
             <div className="flex space-x-4">
               <Link 
-                href="https://github.com/yourusername/nextjs-template" 
-                className="text-zinc-400 hover:text-white transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="h-5 w-5" />
-              </Link>
-              <Link 
-                href="https://twitter.com/yourusername" 
+                href="https://twitter.com/artfolio" 
                 className="text-zinc-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -33,15 +24,15 @@ export default function Footer() {
                 <Twitter className="h-5 w-5" />
               </Link>
               <Link 
-                href="https://linkedin.com/in/yourusername" 
+                href="https://instagram.com/artfolio" 
                 className="text-zinc-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Linkedin className="h-5 w-5" />
+                <Heart className="h-5 w-5" />
               </Link>
               <Link 
-                href="mailto:hello@nexttemplate.com" 
+                href="mailto:hello@artfolio.com" 
                 className="text-zinc-400 hover:text-white transition-colors"
               >
                 <Mail className="h-5 w-5" />
@@ -107,7 +98,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-zinc-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-zinc-400 text-sm mb-4 md:mb-0">
-            © 2025 NextTemplate. All rights reserved.
+            © 2025 Artfolio. All rights reserved.
           </div>
           
           <div className="flex items-center space-x-6 text-sm">

@@ -1,10 +1,11 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { HydrationSafeInput } from "./hydration-safe-form"
 
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   return (
-    <input
+    <HydrationSafeInput
       type={type}
       data-slot="input"
       className={cn(

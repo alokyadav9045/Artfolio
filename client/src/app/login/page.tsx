@@ -1,22 +1,54 @@
 "use client";
 
+import { signIn } from 'next-auth/react'
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Github, Mail, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, AlertCircle } from "lucide-react";
 import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function LoginPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [email, setEmail] = useState(searchParams.get('email') || "");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log("Login attempt:", { email, password });
+    setError("");
+    setIsLoading(true);
+
+    try {
+      const result = await signIn('credentials', {
+        email: email.toLowerCase().trim(),
+        password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        setError("Invalid email or password. Please try again.");
+      } else if (result?.ok) {
+        // Redirect to home page or the intended page
+        const callbackUrl = searchParams.get('callbackUrl') || '/';
+        router.push(callbackUrl);
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      setError("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleInputChange = (setter: (value: string) => void) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    setter(e.target.value);
+    if (error) setError(""); // Clear error when user starts typing
   };
 
   return (
@@ -25,7 +57,7 @@ export default function LoginPage() {
         {/* Logo/Brand */}
         <div className="text-center mb-8">
           <Link href="/" className="text-3xl font-bold text-white">
-            NextTemplate
+            Artfolio
           </Link>
           <p className="text-zinc-400 mt-2">Welcome back! Please sign in to your account.</p>
         </div>
@@ -37,29 +69,15 @@ export default function LoginPage() {
               Enter your credentials to access your account
             </CardDescription>
           </CardHeader>
-          
-          <CardContent className="space-y-6">
-            {/* Social Login Buttons */}
-            <div className="grid grid-cols-2 gap-4">
-              <Button variant="outline" className="w-full border-zinc-700 text-zinc-400 hover:bg-zinc-700 hover:text-white">
-                <Github className="mr-2 h-4 w-4" />
-                GitHub
-              </Button>
-              <Button variant="outline" className="w-full border-zinc-700 text-zinc-400 hover:bg-zinc-700 hover:text-white">
-                <Mail className="mr-2 h-4 w-4" />
-                Google
-              </Button>
-            </div>
 
-            {/* Divider */}
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t border-zinc-700" />
+          <CardContent className="space-y-6">
+            {/* Error Message */}
+            {error && (
+              <div className="flex items-center gap-2 p-3 bg-red-900/20 border border-red-800 rounded-lg text-red-400 text-sm">
+                <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                {error}
               </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-zinc-800 px-2 text-zinc-500">Or continue with email</span>
-              </div>
-            </div>
+            )}
 
             {/* Login Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -70,8 +88,9 @@ export default function LoginPage() {
                   type="email"
                   placeholder="Enter your email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={handleInputChange(setEmail)}
                   required
+                  disabled={isLoading}
                   className="w-full bg-zinc-900 border-zinc-700 text-white placeholder:text-zinc-500 focus:border-zinc-600"
                 />
               </div>
@@ -92,8 +111,9 @@ export default function LoginPage() {
                     type={showPassword ? "text" : "password"}
                     placeholder="Enter your password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={handleInputChange(setPassword)}
                     required
+                    disabled={isLoading}
                     className="w-full pr-10 bg-zinc-900 border-zinc-700 text-white placeholder:text-zinc-500 focus:border-zinc-600"
                   />
                   <Button
@@ -102,6 +122,7 @@ export default function LoginPage() {
                     size="sm"
                     className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-zinc-700"
                     onClick={() => setShowPassword(!showPassword)}
+                    disabled={isLoading}
                   >
                     {showPassword ? (
                       <EyeOff className="h-4 w-4 text-zinc-500" />
@@ -112,8 +133,13 @@ export default function LoginPage() {
                 </div>
               </div>
 
-              <Button type="submit" className="w-full bg-zinc-800 hover:bg-zinc-700 text-white" size="lg">
-                Sign In
+              <Button
+                type="submit"
+                className="w-full bg-zinc-800 hover:bg-zinc-700 text-white disabled:opacity-50"
+                size="lg"
+                disabled={isLoading}
+              >
+                {isLoading ? "Signing In..." : "Sign In"}
               </Button>
             </form>
 
