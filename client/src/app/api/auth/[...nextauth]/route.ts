@@ -1,8 +1,17 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { User } from '@/lib/models'
 import bcrypt from 'bcryptjs'
-import { isDatabaseAvailable } from '@/lib/mongodb'
+
+// Dynamic import to avoid initialization issues
+async function getUserModel() {
+  const { User } = await import('@/lib/models')
+  return User
+}
+
+async function getDatabaseUtils() {
+  const { isDatabaseAvailable } = await import('@/lib/mongodb')
+  return { isDatabaseAvailable }
+}
 
 // @ts-expect-error NextAuth typing issues with Next.js 15
 const handler = NextAuth({
@@ -19,6 +28,10 @@ const handler = NextAuth({
         }
 
         try {
+          // Dynamic imports to avoid initialization issues
+          const User = await getUserModel()
+          const { isDatabaseAvailable } = await getDatabaseUtils()
+
           // Check if database is available
           const dbAvailable = await isDatabaseAvailable()
           if (!dbAvailable) {
