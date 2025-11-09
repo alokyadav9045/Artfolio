@@ -1,6 +1,6 @@
 # 🎨 Artfolio - Portfolio Builder for Artists
 
-A gallery that breathes — creators upload light and color, visitors leave echoes (likes, comments). A modern, production-ready portfolio platform for artists built with Next.js 15, featuring secure authentication, cloud storage, and real-time interactions.
+A gallery that breathes — creators upload light and color, visitors leave echoes (likes, comments). A modern, production-ready portfolio platform for artists built with Next.js 15, featuring secure authentication, cloud storage, real-time interactions, and an interactive 3D GridScan background effect.
 
 ![Artfolio](client/public/nextjs.png)
 
@@ -10,6 +10,7 @@ A gallery that breathes — creators upload light and color, visitors leave echo
 - 🔐 **Secure Authentication** - NextAuth.js with OAuth (Google, GitHub)
 - ☁️ **Cloud Storage** - AWS S3 or Cloudinary integration for image uploads
 - 💬 **Social Interactions** - Likes, comments, and engagement features
+- 🎯 **Interactive 3D Effects** - GridScan component with teal color scheme and mouse-responsive animations
 - 📱 **Responsive Design** - Mobile-first approach with Tailwind CSS
 - 🔧 **TypeScript** - Full type safety throughout the application
 - 🧪 **Comprehensive Testing** - Jest unit tests and Playwright E2E tests
@@ -25,6 +26,7 @@ A gallery that breathes — creators upload light and color, visitors leave echo
 - **Database:** MongoDB with Mongoose ODM
 - **Authentication:** NextAuth.js
 - **Styling:** Tailwind CSS 4 + shadcn/ui
+- **3D Graphics:** Three.js + Postprocessing effects
 - **Storage:** AWS S3 / Cloudinary
 - **Deployment:** Vercel
 - **Monitoring:** Sentry + Vercel Analytics
@@ -104,7 +106,17 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 📁 Project Structure
+## 🎯 Interactive 3D GridScan Effect
+
+Artfolio features a stunning interactive 3D GridScan background effect built with Three.js:
+
+- **Teal Color Scheme** - Grid lines in #008080, scan effect in #00CED1
+- **Mouse Responsive** - Grid reacts to mouse movement for immersive interaction
+- **Postprocessing Effects** - Bloom and chromatic aberration for visual depth
+- **Performance Optimized** - WebGL rendering with efficient shader code
+- **Background Layer** - 40% opacity overlay on hero section
+
+The GridScan component creates an engaging, modern aesthetic that complements the artistic nature of the platform.
 
 ```
 client/
@@ -116,21 +128,22 @@ client/
 │   │   └── page.tsx       # Homepage
 │   ├── components/
 │   │   ├── ui/            # shadcn/ui components
-│   │   ├── hero.tsx       # Hero section
+│   │   │   ├── grid-scan.tsx    # Interactive 3D GridScan component
+│   │   │   ├── button.tsx       # UI components
+│   │   │   └── ...
+│   │   ├── hero.tsx       # Hero section with GridScan background
 │   │   ├── navbar.tsx     # Navigation
 │   │   └── footer.tsx     # Footer
 │   └── lib/
 │       ├── utils.ts       # Utility functions
 │       └── rate-limit.ts  # Rate limiting logic
-├── prisma/
-│   └── schema.prisma      # Database schema
 ├── public/                # Static assets
-├── e2e/                   # End-to-end tests
 ├── .env.example           # Environment template
-├── next.config.js         # Next.js configuration
+├── next.config.ts         # Next.js configuration
 ├── tailwind.config.js     # Tailwind configuration
 ├── jest.config.js         # Jest configuration
 ├── playwright.config.ts   # Playwright configuration
+├── eslint.config.mjs      # ESLint configuration
 └── vercel.json            # Vercel deployment config
 ```
 
@@ -156,6 +169,14 @@ npm run test:e2e
 
 ## 🚀 Deployment
 
+### ✅ Current Status: Ready for Production
+
+The project has been cleaned and optimized for deployment:
+- All ESLint errors resolved
+- Extra files removed (documentation, backups, sensitive data)
+- Build tested successfully
+- GridScan component with teal colors integrated
+
 ### Vercel Deployment
 
 1. **Connect Repository**
@@ -166,13 +187,7 @@ npm run test:e2e
    - Add all variables from `.env.example`
    - Configure production database URL
 
-3. **Database Migration**
-   ```bash
-   # For PlanetScale or similar
-   npm run db:push
-   ```
-
-4. **Deploy**
+3. **Deploy**
    - Vercel will automatically deploy on git push
    - Preview deployments for pull requests
 
@@ -211,24 +226,22 @@ npm run analyze:view
 ## � Development Scripts
 
 ```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run preview      # Build and preview
-npm run lint         # Run ESLint
-npm run lint:fix     # Fix linting issues
-npm run type-check   # Run TypeScript checks
-npm run test         # Run unit tests
-npm run test:watch   # Watch mode tests
+npm run dev           # Start development server with Turbopack
+npm run build         # Build for production
+npm run start         # Start production server
+npm run preview       # Build and preview locally
+npm run lint          # Run ESLint
+npm run lint:fix      # Fix linting issues automatically
+npm run type-check    # Run TypeScript checks
+npm run test          # Run unit tests
+npm run test:watch    # Watch mode tests
 npm run test:coverage # Test coverage report
-npm run test:e2e     # Run E2E tests
-npm run db:seed      # Seed database with sample data
-npm run clean        # Clean build artifacts
-npm run analyze      # Bundle analysis
-npm run analyze:view # View bundle analysis
-npm run deploy:check # Pre-deployment checks
-npm run analyze      # Bundle analysis
-npm run deploy:check # Pre-deployment checks
+npm run db:seed       # Seed database with sample data
+npm run db:seed:direct # Direct database seeding
+npm run clean         # Clean build artifacts and cache
+npm run analyze       # Bundle analysis
+npm run analyze:view  # View bundle analysis in browser
+npm run deploy:check  # Pre-deployment checks (lint + type-check + build)
 ```
 
 ## 🔒 Security Features
@@ -306,3 +319,23 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ⭐ If Artfolio helped you showcase your art, please give it a star!
+
+## 📋 Recent Updates
+
+### ✅ Latest Features
+- **Interactive 3D GridScan Effect** - Teal-colored (#008080, #00CED1) mouse-responsive grid background
+- **Production Ready** - All ESLint errors resolved, build optimized for Vercel
+- **Clean Codebase** - Removed development artifacts, sensitive files, and build cache
+- **Performance Optimized** - Turbopack development, bundle analysis, and Web Vitals monitoring
+
+### 🚀 Deployment Status
+- **Build Status:** ✅ Passing
+- **ESLint:** ✅ Clean
+- **TypeScript:** ✅ Valid
+- **Ready for:** Vercel deployment
+
+### 🎨 Visual Features
+- GridScan component with Three.js postprocessing effects
+- Teal color scheme throughout the application
+- Responsive design with mobile-first approach
+- Modern UI with shadcn/ui components
